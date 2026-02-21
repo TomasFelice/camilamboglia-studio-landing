@@ -2,28 +2,117 @@ import Link from "next/link";
 import { Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
+    const marqueeText = "AMPLIFY YOUR BRAND • WORKING GLOBALLY • CREATIVE EXCELLENCE • DIGITAL EXPERIENCES • ";
+
     return (
-        <footer className="w-full py-8 bg-background border-t border-zinc-100">
-            <div className="container px-4 md:px-6 mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-2">
-                    <span className="text-lg font-bold tracking-tight text-primary font-sans">
-                        Cami Lamboglia Studio
-                    </span>
+        <footer className="w-full bg-[#1a1a1a] border-t border-[#4a403a]/20">
+            {/* Marquee band */}
+            <div className="py-6 border-b border-white/5">
+                <div className="marquee-container">
+                    <div className="marquee-content">
+                        {[...Array(4)].map((_, i) => (
+                            <span
+                                key={i}
+                                className="text-3xl md:text-5xl font-bold tracking-tight text-white/20 uppercase mx-6 whitespace-nowrap"
+                            >
+                                {marqueeText}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Footer content */}
+            <div className="container px-6 md:px-10 mx-auto py-12 md:py-16">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+                    {/* Logo and tagline */}
+                    <div className="space-y-4">
+                        <span className="text-sm font-bold tracking-[0.3em] uppercase text-[#e4e2dd]">
+                            Cami Lamboglia Studio
+                        </span>
+                        <p className="text-xs text-[#e4e2dd]/40 font-light leading-relaxed max-w-xs">
+                            Amplificamos el impacto de tu marca con estrategias creativas y proyección internacional.
+                        </p>
+                    </div>
+
+                    {/* Navigation */}
+                    <div className="space-y-4">
+                        <span className="text-[10px] tracking-[0.3em] uppercase text-[#e4e2dd]/30 font-medium">
+                            Navegación
+                        </span>
+                        <nav className="flex flex-col gap-3">
+                            {[
+                                { name: "Home", href: "#home" },
+                                { name: "About", href: "#about" },
+                                { name: "Servicios", href: "#services" },
+                                { name: "Proyectos", href: "#projects" },
+                                { name: "Contacto", href: "#contact" },
+                            ].map((item) => (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    className="text-xs tracking-[0.1em] text-[#e4e2dd]/40 hover:text-[#7b0e0e] transition-colors duration-300"
+                                >
+                                    {item.name}
+                                </Link>
+                            ))}
+                        </nav>
+                    </div>
+
+                    {/* Social & contact */}
+                    <div className="space-y-4">
+                        <span className="text-[10px] tracking-[0.3em] uppercase text-[#e4e2dd]/30 font-medium">
+                            Seguinos
+                        </span>
+                        <div className="flex gap-5">
+                            <Link
+                                href="https://www.instagram.com/camilamboglia.studio/"
+                                target="_blank"
+                                className="text-[#e4e2dd]/40 hover:text-[#7b0e0e] transition-colors duration-300"
+                            >
+                                <Instagram className="h-5 w-5" />
+                                <span className="sr-only">Instagram</span>
+                            </Link>
+                            <Link
+                                href="https://www.linkedin.com/in/camilamboglia/"
+                                target="_blank"
+                                className="text-[#e4e2dd]/40 hover:text-[#7b0e0e] transition-colors duration-300"
+                            >
+                                <Linkedin className="h-5 w-5" />
+                                <span className="sr-only">LinkedIn</span>
+                            </Link>
+                            {/* TikTok icon */}
+                            <Link
+                                href="https://www.tiktok.com/"
+                                target="_blank"
+                                className="text-[#e4e2dd]/40 hover:text-[#7b0e0e] transition-colors duration-300"
+                            >
+                                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.71a8.27 8.27 0 004.76 1.5v-3.4a4.85 4.85 0 01-1-.12z" />
+                                </svg>
+                                <span className="sr-only">TikTok</span>
+                            </Link>
+                        </div>
+
+                        <div className="pt-2">
+                            <a
+                                href="mailto:camilamboglia.studio@gmail.com"
+                                className="text-xs text-[#e4e2dd]/40 hover:text-[#7b0e0e] transition-colors duration-300"
+                            >
+                                camilamboglia.studio@gmail.com
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                <p className="text-xs text-zinc-500">
-                    © 2024 Cami Lamboglia Studio. Todos los derechos reservados.
-                </p>
-
-                <div className="flex gap-4">
-                    <Link href="#" className="text-zinc-500 hover:text-primary transition-colors">
-                        <Instagram className="h-5 w-5" />
-                        <span className="sr-only">Instagram</span>
-                    </Link>
-                    <Link href="#" className="text-zinc-500 hover:text-primary transition-colors">
-                        <Linkedin className="h-5 w-5" />
-                        <span className="sr-only">LinkedIn</span>
-                    </Link>
+                {/* Bottom bar */}
+                <div className="border-t border-white/5 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p className="text-[10px] tracking-[0.15em] text-[#e4e2dd]/25 uppercase">
+                        © 2026 Cami Lamboglia Studio. All rights reserved.
+                    </p>
+                    <p className="text-[10px] tracking-[0.15em] text-[#e4e2dd]/25 uppercase">
+                        Designed with purpose
+                    </p>
                 </div>
             </div>
         </footer>

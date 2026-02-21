@@ -1,61 +1,88 @@
+"use client";
+
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import {
-    Megaphone,
-    PenTool,
-    Users,
-    BarChart
+    Palette,
+    Share2,
+    Target,
+    Camera,
+    Mail,
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 export default function Services() {
+    const sectionRef = useScrollReveal<HTMLElement>();
+
     const services = [
         {
-            title: "Estrategia Integral",
-            description: "Desarrollo de planes de marketing a medida.",
-            icon: <BarChart className="h-8 w-8 text-zinc-500 mb-4" />
+            title: "Branding",
+            description: "Identidad visual que define y posiciona tu marca en el mercado.",
+            icon: <Palette className="h-6 w-6" />,
         },
         {
-            title: "Producción y Edición",
-            description: "Creación de visuales y copys atractivos.",
-            icon: <PenTool className="h-8 w-8 text-zinc-500 mb-4" />
+            title: "Social Media",
+            description: "Gestión estratégica de redes para conectar con tu audiencia.",
+            icon: <Share2 className="h-6 w-6" />,
         },
         {
-            title: "Community Management",
-            description: "Gestión y crecimiento de tus comunidades online.",
-            icon: <Users className="h-8 w-8 text-zinc-500 mb-4" />
+            title: "Paid Media",
+            description: "Campañas publicitarias optimizadas para maximizar resultados.",
+            icon: <Target className="h-6 w-6" />,
         },
         {
-            title: "Pauta Publicitaria",
-            description: "Campañas optimizadas para maximizar tu inversión.",
-            icon: <Megaphone className="h-8 w-8 text-zinc-500 mb-4" />
-        }
+            title: "Product Content",
+            description: "Contenido visual premium que eleva la percepción de tu producto.",
+            icon: <Camera className="h-6 w-6" />,
+        },
+        {
+            title: "Email Marketing",
+            description: "Comunicación directa y efectiva con tu base de clientes.",
+            icon: <Mail className="h-6 w-6" />,
+        },
     ];
 
     return (
-        <section id="services" className="w-full py-12 md:py-24 bg-background">
-            <div className="container px-4 md:px-6 mx-auto">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-primary">
-                        ¿Qué hacemos?
-                    </h2>
-                    <p className="max-w-[700px] text-zinc-800 md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed text-muted-foreground">
-                        Contamos con un equipo especializado que se encarga de todo lo que necesita tu marca para destacar en el entorno digital.
-                    </p>
-                    <div className="w-[100px] h-[1px] bg-zinc-300 mt-6" />
+        <section
+            id="services"
+            ref={sectionRef}
+            className="w-full py-24 md:py-36 bg-[#f5f4f0]"
+        >
+            <div className="container px-6 md:px-10 mx-auto">
+                {/* Section label */}
+                <div className="scroll-reveal mb-16">
+                    <span className="text-xs tracking-[0.4em] uppercase text-[#7b0e0e] font-medium">
+                        Our Services
+                    </span>
+                    <div className="w-12 h-[1px] bg-[#7b0e0e]/30 mt-4" />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* Heading */}
+                <h2 className="scroll-reveal text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1a1a1a] leading-[1.1] mb-20 max-w-3xl">
+                    Potenciamos marcas con ideas creativas y
+                    <span className="text-[#4a403a]/25"> estrategias efectivas</span>
+                </h2>
+
+                {/* Services grid */}
+                <div className="stagger-children grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-[#4a403a]/10">
                     {services.map((service, index) => (
-                        <Card key={index} className="bg-white border-zinc-100 shadow-sm hover:shadow-md transition-shadow">
-                            <CardHeader className="flex flex-col items-center text-center pt-8 pb-4">
-                                {service.icon}
-                                <CardTitle className="text-xl font-bold text-primary">{service.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent className="text-center pb-8">
-                                <CardDescription className="text-base text-zinc-600">
-                                    {service.description}
-                                </CardDescription>
-                            </CardContent>
-                        </Card>
+                        <div
+                            key={index}
+                            className="scroll-reveal group border-b border-r border-[#4a403a]/10 p-8 md:p-10 hover:bg-white/60 transition-all duration-500 cursor-default"
+                        >
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="text-[#7b0e0e] group-hover:scale-110 transition-transform duration-300">
+                                    {service.icon}
+                                </div>
+                                <span className="text-xs tracking-[0.2em] uppercase text-[#4a403a]/30 font-medium">
+                                    0{index + 1}
+                                </span>
+                            </div>
+                            <h3 className="text-xl md:text-2xl font-semibold text-[#1a1a1a] mb-3 tracking-tight">
+                                {service.title}
+                            </h3>
+                            <p className="text-sm text-[#4a403a]/60 leading-relaxed font-light">
+                                {service.description}
+                            </p>
+                        </div>
                     ))}
                 </div>
             </div>
