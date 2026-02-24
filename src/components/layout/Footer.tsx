@@ -73,25 +73,6 @@ export default function Footer() {
                                 <Instagram className="h-5 w-5" />
                                 <span className="sr-only">Instagram</span>
                             </Link>
-                            <Link
-                                href="https://www.linkedin.com/in/camilamboglia/"
-                                target="_blank"
-                                className="text-[#e4e2dd]/40 hover:text-[#7b0e0e] transition-colors duration-300"
-                            >
-                                <Linkedin className="h-5 w-5" />
-                                <span className="sr-only">LinkedIn</span>
-                            </Link>
-                            {/* TikTok icon */}
-                            <Link
-                                href="https://www.tiktok.com/"
-                                target="_blank"
-                                className="text-[#e4e2dd]/40 hover:text-[#7b0e0e] transition-colors duration-300"
-                            >
-                                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.71a8.27 8.27 0 004.76 1.5v-3.4a4.85 4.85 0 01-1-.12z" />
-                                </svg>
-                                <span className="sr-only">TikTok</span>
-                            </Link>
                         </div>
 
                         <div className="pt-2">
