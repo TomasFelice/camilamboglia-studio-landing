@@ -28,7 +28,7 @@ export default function Footer() {
                     {/* Logo and tagline */}
                     <div className="space-y-4">
                         <span className="text-sm font-bold tracking-[0.3em] uppercase text-[#e4e2dd]">
-                            Cami Lamboglia Studio
+                            Cala Studio
                         </span>
                         <p className="text-xs text-[#e4e2dd]/40 font-light leading-relaxed max-w-xs">
                             Amplificamos el impacto de tu marca con estrategias creativas y proyección internacional.
@@ -66,7 +66,7 @@ export default function Footer() {
                         </span>
                         <div className="flex gap-5">
                             <Link
-                                href="https://www.instagram.com/camilamboglia.studio/"
+                                href="https://www.instagram.com/calastudio.mkt/"
                                 target="_blank"
                                 className="text-[#e4e2dd]/40 hover:text-[#7b0e0e] transition-colors duration-300"
                             >
@@ -89,7 +89,7 @@ export default function Footer() {
                 {/* Bottom bar */}
                 <div className="border-t border-white/5 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <p className="text-[10px] tracking-[0.15em] text-[#e4e2dd]/25 uppercase">
-                        © 2026 Cami Lamboglia Studio. All rights reserved.
+                        © 2026 Cala Studio. All rights reserved.
                     </p>
                     <p className="text-[10px] tracking-[0.15em] text-[#e4e2dd]/25 uppercase">
                         Designed with purpose

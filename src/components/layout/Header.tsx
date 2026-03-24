@@ -21,7 +21,7 @@ export default function Header() {
                 <div className="container mx-auto flex h-20 items-center justify-between px-6 md:px-10">
                     <Link href="/" className="flex items-center gap-2">
                         <span className="text-sm font-bold tracking-[0.3em] uppercase text-[#1a1a1a]">
-                            Cami Lamboglia Studio
+                            Cala Studio
                         </span>
                     </Link>
 

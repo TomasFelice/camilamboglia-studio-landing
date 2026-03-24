@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Cami Lamboglia Studio | Branding & Digital Experiences",
+  title: "Cala Studio | Branding & Digital Experiences",
   description: "Amplificamos el impacto de tu marca. Branding, Social Media, Paid Media y experiencias digitales con proyección internacional.",
 };
 
