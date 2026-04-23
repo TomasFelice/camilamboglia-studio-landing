@@ -11,7 +11,8 @@ export default function Header() {
         { name: "Home", href: "#home" },
         { name: "About", href: "#about" },
         { name: "Servicios", href: "#services" },
-        // { name: "Proyectos", href: "#projects" },
+        { name: "Resultados", href: "#results" },
+        { name: "Contenido", href: "#content" },
         { name: "Contacto", href: "#contact" },
     ];
 
@@ -26,12 +27,12 @@ export default function Header() {
                     </Link>
 
                     {/* Desktop Nav */}
-                    <nav className="hidden md:flex gap-8 items-center">
+                    <nav className="hidden md:flex gap-6 items-center">
                         {navItems.map((item) => (
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className="text-xs font-medium tracking-[0.15em] uppercase text-[#4a403a]/70 hover:text-[#7b0e0e] transition-colors duration-300"
+                                className="text-xs font-medium tracking-[0.15em] uppercase text-[#4a403a]/70 hover:text-[#4a403a] transition-colors duration-300"
                             >
                                 {item.name}
                             </Link>
@@ -41,7 +42,7 @@ export default function Header() {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="md:hidden text-[#4a403a] hover:text-[#7b0e0e] transition-colors z-50 relative"
+                        className="md:hidden text-[#4a403a] hover:text-[#4a403a] transition-colors z-50 relative"
                         aria-label="Toggle menu"
                     >
                         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -57,7 +58,7 @@ export default function Header() {
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className="text-2xl font-light tracking-[0.2em] uppercase text-[#4a403a] hover:text-[#7b0e0e] transition-colors duration-300"
+                                className="text-2xl font-light tracking-[0.2em] uppercase text-[#4a403a] hover:text-[#4a403a] transition-colors duration-300"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {item.name}

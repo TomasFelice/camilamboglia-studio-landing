@@ -45,13 +45,14 @@ export default function Footer() {
                                 { name: "Home", href: "#home" },
                                 { name: "About", href: "#about" },
                                 { name: "Servicios", href: "#services" },
-                                // { name: "Proyectos", href: "#projects" },
+                                { name: "Resultados", href: "#results" },
+                                { name: "Contenido", href: "#content" },
                                 { name: "Contacto", href: "#contact" },
                             ].map((item) => (
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="text-xs tracking-[0.1em] text-[#e4e2dd]/40 hover:text-[#7b0e0e] transition-colors duration-300"
+                                    className="text-xs tracking-[0.1em] text-[#e4e2dd]/40 hover:text-[#e4e2dd]/80 transition-colors duration-300"
                                 >
                                     {item.name}
                                 </Link>
@@ -68,7 +69,7 @@ export default function Footer() {
                             <Link
                                 href="https://www.instagram.com/calastudio.mkt/"
                                 target="_blank"
-                                className="text-[#e4e2dd]/40 hover:text-[#7b0e0e] transition-colors duration-300"
+                                className="text-[#e4e2dd]/40 hover:text-[#e4e2dd]/80 transition-colors duration-300"
                             >
                                 <Instagram className="h-5 w-5" />
                                 <span className="sr-only">Instagram</span>
@@ -78,7 +79,7 @@ export default function Footer() {
                         <div className="pt-2">
                             <a
                                 href="mailto:camilamboglia.studio@gmail.com"
-                                className="text-xs text-[#e4e2dd]/40 hover:text-[#7b0e0e] transition-colors duration-300"
+                                className="text-xs text-[#e4e2dd]/40 hover:text-[#e4e2dd]/80 transition-colors duration-300"
                             >
                                 camilamboglia.studio@gmail.com
                             </a>

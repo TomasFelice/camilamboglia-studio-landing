@@ -14,20 +14,25 @@ export default function About() {
             <div className="container px-6 md:px-10 mx-auto">
                 {/* Section label */}
                 <div className="scroll-reveal mb-16">
-                    <span className="text-xs tracking-[0.4em] uppercase text-[#7b0e0e] font-medium">
+                    <span className="text-xs tracking-[0.4em] uppercase text-[#4a403a]/50 font-medium">
                         About
                     </span>
-                    <div className="w-12 h-[1px] bg-[#7b0e0e]/30 mt-4" />
+                    <div className="w-12 h-[1px] bg-[#4a403a]/20 mt-4" />
                 </div>
 
                 {/* Main content grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
                     {/* Left: Philosophy */}
-                    <div className="space-y-8">
-                        <h2 className="scroll-reveal text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1a1a1a] leading-[1.1]">
+                    <div>
+                        <h2 className="scroll-reveal text-4xl md:text-5xl font-bold tracking-tight text-[#1a1a1a] leading-[1.1] mb-0">
                             Creemos que cada proyecto es una oportunidad para
-                            <span className="text-[#4a403a]/25"> transformar ideas en resultados</span>
                         </h2>
+                        <p className="scroll-reveal font-[family-name:var(--font-great-vibes)] font-normal tracking-normal text-6xl md:text-7xl lg:text-8xl text-[#4a403a] leading-none -mt-3 md:-mt-5">
+                            transformar ideas
+                        </p>
+                        <p className="scroll-reveal text-2xl md:text-3xl font-bold tracking-tight text-[#1a1a1a]/15 -mt-2 md:-mt-4">
+                            en resultados
+                        </p>
                     </div>
 
                     {/* Right: Description */}
@@ -43,15 +48,15 @@ export default function About() {
                         {/* Stats row */}
                         <div className="scroll-reveal grid grid-cols-3 gap-6 pt-8 border-t border-[#4a403a]/10">
                             <div>
-                                <div className="text-3xl md:text-4xl font-bold text-[#7b0e0e]">15+</div>
+                                <div className="text-3xl md:text-4xl font-bold text-[#1a1a1a]">15+</div>
                                 <div className="text-xs tracking-[0.15em] uppercase text-[#4a403a]/40 mt-2">Marcas que confían en nosotros</div>
                             </div>
                             <div>
-                                <div className="text-3xl md:text-4xl font-bold text-[#7b0e0e]">100%</div>
+                                <div className="text-3xl md:text-4xl font-bold text-[#1a1a1a]">100%</div>
                                 <div className="text-xs tracking-[0.15em] uppercase text-[#4a403a]/40 mt-2">Clientes satisfechos</div>
                             </div>
                             <div>
-                                <div className="text-3xl md:text-4xl font-bold text-[#7b0e0e]">∞</div>
+                                <div className="text-3xl md:text-4xl font-bold text-[#1a1a1a]">∞</div>
                                 <div className="text-xs tracking-[0.15em] uppercase text-[#4a403a]/40 mt-2">Ideas creativas</div>
                             </div>
                         </div>

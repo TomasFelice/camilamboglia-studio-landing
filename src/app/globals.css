@@ -44,14 +44,14 @@
   --secondary-foreground: #1a1a1a;
   --muted: #4a403a;
   --muted-foreground: #6b6b6b;
-  --accent: #7b0e0e;
+  --accent: #a09080;
   --accent-foreground: #FFFFFF;
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
   --border: #d4d2cd;
   --input: #d4d2cd;
-  --ring: #7b0e0e;
-  --radius: 0.5rem;
+  --ring: #a09080;
+  --radius: 1rem;
 }
 
 /* ===== BASE STYLES ===== */
@@ -71,8 +71,8 @@
   }
 
   ::selection {
-    background: #7b0e0e;
-    color: #FFFFFF;
+    background: #e4e2dd;
+    color: #1a1a1a;
   }
 }
 
@@ -263,5 +263,5 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7b0e0e;
+  background: #a09080;
 }

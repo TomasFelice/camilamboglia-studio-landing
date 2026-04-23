@@ -40,15 +40,21 @@ export default function Hero() {
             {/* Main content */}
             <div className="relative z-10 container px-6 md:px-10 mx-auto flex flex-col items-center text-center flex-1 justify-center">
                 {/* Small label */}
-                <p className="scroll-reveal text-xs tracking-[0.4em] uppercase text-[#7b0e0e] mb-8 font-medium bg-white/80 px-4 py-1.5 backdrop-blur-sm">
+                <p className="scroll-reveal text-xs tracking-[0.4em] uppercase text-[#4a403a] mb-8 font-medium bg-white/80 px-5 py-1.5 backdrop-blur-sm rounded-full">
                     Branding & Digital Experiences
                 </p>
 
                 {/* Main headline */}
-                <h1 className="scroll-reveal text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter text-white leading-[0.9] mb-8 drop-shadow-lg">
-                    AMPLIFICAMOS
-                    <br />
-                    <span className="text-white/40">TU IMPACTO</span>
+                <h1 className="scroll-reveal font-bold tracking-tighter text-white drop-shadow-lg mb-6">
+                    {/* Line 1: AMPLIFICAMOS TU */}
+                    <span className="flex items-baseline justify-center gap-3">
+                        <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-none">AMPLIFICAMOS</span>
+                        <span className="text-white/30 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold leading-none">TU</span>
+                    </span>
+                    {/* Line 2: Impacto — overlaps slightly with line above */}
+                    <span className="block font-[family-name:var(--font-great-vibes)] font-normal tracking-normal text-7xl sm:text-8xl md:text-9xl lg:text-[9rem] xl:text-[11rem] leading-none -mt-2 md:-mt-4">
+                        Impacto
+                    </span>
                 </h1>
 
                 {/* Subtitle */}
@@ -59,7 +65,7 @@ export default function Hero() {
                 {/* CTA */}
                 <Link
                     href="#contact"
-                    className="scroll-reveal group relative inline-flex items-center gap-3 px-10 py-4 text-xs tracking-[0.25em] uppercase font-semibold text-white bg-[#7b0e0e] hover:bg-[#8f1414] transition-all duration-500"
+                    className="scroll-reveal group relative inline-flex items-center gap-3 px-10 py-4 text-xs tracking-[0.25em] uppercase font-semibold text-white bg-[#1a1a1a]/80 hover:bg-[#1a1a1a] backdrop-blur-sm rounded-full transition-all duration-500"
                 >
                     Contactanos
                     <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
