@@ -1,63 +1,61 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Play, ImageIcon, Layers } from "lucide-react";
 
-const contentItems = [
-    {
-        type: "Reel",
-        label: "Social Media",
-        icon: "play",
-        tall: true,
-        from: "#e8e0d4",
-        to: "#f0ebe3",
-    },
-    {
-        type: "Post",
-        label: "Branding",
-        icon: "image",
-        tall: false,
-        from: "#ede8df",
-        to: "#e4ddd3",
-    },
-    {
-        type: "Post",
-        label: "Product",
-        icon: "image",
-        tall: false,
-        from: "#e6e1d8",
-        to: "#ede8e0",
-    },
-    {
-        type: "Historia",
-        label: "Stories",
-        icon: "play",
-        tall: true,
-        from: "#dfd9cf",
-        to: "#e8e2d8",
-    },
-    {
-        type: "Carrusel",
-        label: "Content",
-        icon: "layers",
-        tall: false,
-        from: "#ebe6dd",
-        to: "#dfd9cf",
-    },
-    {
-        type: "Post",
-        label: "Diseño",
-        icon: "image",
-        tall: false,
-        from: "#e4dfd6",
-        to: "#eae5dc",
-    },
-];
+function VideoCard({ src, className }: { src: string; className?: string }) {
+    const videoRef = useRef<HTMLVideoElement>(null);
 
-function ContentIcon({ type }: { type: string }) {
-    if (type === "play") return <Play className="h-5 w-5 fill-current" />;
-    if (type === "layers") return <Layers className="h-5 w-5" />;
-    return <ImageIcon className="h-5 w-5" />;
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) video.play().catch(() => {});
+                else video.pause();
+            },
+            { threshold: 0.3 }
+        );
+        observer.observe(video);
+        return () => observer.disconnect();
+    }, []);
+
+    return (
+        <div className={`scroll-reveal relative overflow-hidden rounded-2xl md:rounded-3xl bg-[#e8e0d4] ${className ?? ""}`}>
+            <span className="absolute top-2 left-2 md:top-3 md:left-3 z-10 text-[8px] md:text-[9px] tracking-[0.15em] uppercase font-semibold bg-white/70 backdrop-blur-sm text-[#4a403a] px-2 py-0.5 md:px-3 md:py-1 rounded-full">
+                Reel
+            </span>
+            <video
+                ref={videoRef}
+                src={src}
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-cover"
+            />
+        </div>
+    );
+}
+
+function ImageCard({ src, alt, type, className }: {
+    src: string; alt: string; type: string; className?: string;
+}) {
+    return (
+        <div className={`scroll-reveal relative overflow-hidden rounded-2xl md:rounded-3xl bg-[#e8e0d4] ${className ?? ""}`}>
+            <span className="absolute top-2 left-2 md:top-3 md:left-3 z-10 text-[8px] md:text-[9px] tracking-[0.15em] uppercase font-semibold bg-white/70 backdrop-blur-sm text-[#4a403a] px-2 py-0.5 md:px-3 md:py-1 rounded-full">
+                {type}
+            </span>
+            <Image
+                src={src}
+                alt={alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 25vw"
+            />
+        </div>
+    );
 }
 
 export default function ContentShowcase() {
@@ -94,54 +92,62 @@ export default function ContentShowcase() {
                 </div>
 
                 {/*
-                    Mobile (3 cols): uniform square grid — 2 rows of 3 items, all same size.
-                    Desktop (4 cols): tall items span 2 rows for dynamic masonry layout.
-                    Order: [Reel(tall)] [Post] [Post] [Historia(tall)] [Carrusel] [Post]
-                    Desktop result:
-                      Col1      Col2    Col3    Col4
-                      [Reel  ] [Post ] [Post ] [Historia]
-                      [Reel  ] [Carr ] [Post ] [Historia]
+                    Mobile  (2 cols, items-start): pares de mismo aspect-ratio por fila → misma altura.
+                      Fila 1: [Reel1 9:16]   [Historia1 9:16]
+                      Fila 2: [Post1  4:5]   [Post2     4:5]
+                      Fila 3: [Reel2 9:16]   [Historia2 9:16]
+
+                    Desktop (4 cols, items-stretch, auto-rows 210px):
+                      Col:   1          2         3         4
+                      Row 1: Reel1      Post1     Post2     Historia1
+                      Row 2: Reel1      Reel2     Hist2     Historia1
+                      Row 3: (vacío)    Reel2     Hist2     (vacío)
                 */}
-                <div className="stagger-children grid grid-cols-3 md:grid-cols-4 gap-3 md:gap-4 md:auto-rows-[210px]">
-                    {contentItems.map((item, index) => (
-                        <div
-                            key={index}
-                            className={`scroll-reveal group relative overflow-hidden cursor-default rounded-2xl md:rounded-3xl
-                                aspect-square md:aspect-auto
-                                ${item.tall ? "md:row-span-2" : ""}
-                            `}
-                            style={{ background: `linear-gradient(135deg, ${item.from}, ${item.to})` }}
-                        >
-                            {/* Content type badge */}
-                            <div className="absolute top-2 left-2 md:top-3 md:left-3 z-10">
-                                <span className="text-[8px] md:text-[9px] tracking-[0.15em] md:tracking-[0.2em] uppercase font-semibold bg-white/70 backdrop-blur-sm text-[#4a403a] px-2 py-0.5 md:px-3 md:py-1 rounded-full">
-                                    {item.type}
-                                </span>
-                            </div>
+                <div className="stagger-children grid grid-cols-2 gap-3 items-start md:items-stretch md:grid-cols-4 md:gap-4 md:auto-rows-[210px]">
 
-                            {/* Icon — visible on hover (desktop) or always subtle on mobile */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-9 h-9 md:w-12 md:h-12 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center text-[#4a403a]/50 md:opacity-0 md:group-hover:opacity-100 md:group-hover:bg-white/70 transition-all duration-300">
-                                    <ContentIcon type={item.icon} />
-                                </div>
-                            </div>
+                    {/* Reel 1 — móvil izq / desktop col 1 rows 1-2 */}
+                    <VideoCard
+                        src="/content/reel-1.mp4"
+                        className="aspect-[9/16] md:aspect-auto md:col-start-1 md:row-start-1 md:row-span-2"
+                    />
 
-                            {/* Subtle texture */}
-                            <div
-                                className="absolute inset-0 opacity-[0.04]"
-                                style={{
-                                    backgroundImage: "repeating-linear-gradient(0deg, #4a403a 0px, #4a403a 1px, transparent 1px, transparent 24px)"
-                                }}
-                            />
+                    {/* Historia 1 — móvil der (par Reel1) / desktop col 4 rows 1-2 */}
+                    <ImageCard
+                        src="/content/historia-1.jpg"
+                        alt="Historia de Instagram 1"
+                        type="Historia"
+                        className="aspect-[9/16] md:aspect-auto md:col-start-4 md:row-start-1 md:row-span-2"
+                    />
 
-                            {/* Bottom label */}
-                            <div className="absolute bottom-0 left-0 right-0 p-2 md:p-4">
-                                <span className="text-[8px] md:text-[9px] tracking-[0.15em] md:tracking-[0.2em] uppercase font-medium text-[#4a403a]/50">
-                                    {item.label}
-                                </span>
-                            </div>
-                        </div>
-                    ))}
+                    {/* Post 1 — móvil izq (par Post2) / desktop col 2 row 1 */}
+                    <ImageCard
+                        src="/content/post-1.png"
+                        alt="Post de Instagram 1"
+                        type="Post"
+                        className="aspect-[4/5] md:aspect-auto md:col-start-2 md:row-start-1"
+                    />
+
+                    {/* Post 2 — móvil der (par Post1) / desktop col 3 row 1 */}
+                    <ImageCard
+                        src="/content/post-2.png"
+                        alt="Post de Instagram 2"
+                        type="Post"
+                        className="aspect-[4/5] md:aspect-auto md:col-start-3 md:row-start-1"
+                    />
+
+                    {/* Reel 2 — móvil izq (par Hist2) / desktop col 2 rows 2-3 */}
+                    <VideoCard
+                        src="/content/reel-2.mp4"
+                        className="aspect-[9/16] md:aspect-auto md:col-start-2 md:row-start-2 md:row-span-2"
+                    />
+
+                    {/* Historia 2 — móvil der (par Reel2) / desktop col 3 rows 2-3 */}
+                    <ImageCard
+                        src="/content/historia-2.jpg"
+                        alt="Historia de Instagram 2"
+                        type="Historia"
+                        className="aspect-[9/16] md:aspect-auto md:col-start-3 md:row-start-2 md:row-span-2"
+                    />
                 </div>
             </div>
         </section>
