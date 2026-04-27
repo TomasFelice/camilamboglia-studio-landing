@@ -41,7 +41,7 @@ export default function Hero() {
             <div className="relative z-10 container px-6 md:px-10 mx-auto flex flex-col items-center text-center flex-1 justify-center">
                 {/* Small label */}
                 <p className="scroll-reveal text-xs tracking-[0.4em] uppercase text-[#4a403a] mb-8 font-medium bg-white/80 px-5 py-1.5 backdrop-blur-sm rounded-full">
-                    Branding & Digital Experiences
+                    Digital Marketing
                 </p>
 
                 {/* Main headline */}
