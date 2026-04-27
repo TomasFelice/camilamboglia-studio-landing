@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
                         </tr>
                     </table>
                     <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid #e4e2dd; font-size: 11px; color: #4a403a80;">
-                        Enviado desde el formulario de contacto — camilamboglia-studio-landing.vercel.app
+                        Enviado desde el formulario de contacto — calastudio.benai.com.ar
                     </div>
                 </div>
             `,
