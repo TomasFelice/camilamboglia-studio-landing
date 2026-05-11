@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import ContactCTA from "@/components/ui/ContactCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import {
     Palette,
@@ -137,6 +138,8 @@ export default function Services() {
                         </div>
                     ))}
                 </div>
+
+                <ContactCTA />
             </div>
         </section>
     );

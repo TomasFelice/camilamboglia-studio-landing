@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import ContactCTA from "@/components/ui/ContactCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 function VideoCard({ src, className }: { src: string; className?: string }) {
@@ -149,6 +150,8 @@ export default function ContentShowcase() {
                         className="aspect-[9/16] md:aspect-auto md:col-start-3 md:row-start-2 md:row-span-2"
                     />
                 </div>
+
+                <ContactCTA />
             </div>
         </section>
     );

@@ -63,13 +63,14 @@ export default function Hero() {
                 </p>
 
                 {/* CTA */}
-                <Link
+                <a
                     href="#contact"
-                    className="scroll-reveal group relative inline-flex items-center gap-3 px-10 py-4 text-xs tracking-[0.25em] uppercase font-semibold text-white bg-[#1a1a1a]/80 hover:bg-[#1a1a1a] backdrop-blur-sm rounded-full transition-all duration-500"
+                    onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
+                    className="scroll-reveal group relative inline-flex items-center gap-3 px-10 py-4 text-xs tracking-[0.25em] uppercase font-semibold text-white bg-[#1a1a1a]/80 hover:bg-[#1a1a1a] backdrop-blur-sm rounded-full transition-all duration-500 cursor-pointer"
                 >
                     Contactanos
                     <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </Link>
+                </a>
             </div>
 
             {/* Marquee ticker at bottom */}

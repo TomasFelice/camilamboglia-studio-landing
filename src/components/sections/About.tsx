@@ -1,5 +1,6 @@
 "use client";
 
+import ContactCTA from "@/components/ui/ContactCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function About() {
@@ -62,6 +63,8 @@ export default function About() {
                         </div>
                     </div>
                 </div>
+
+                <ContactCTA />
             </div>
         </section>
     );
