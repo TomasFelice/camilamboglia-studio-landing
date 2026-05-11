@@ -1,5 +1,6 @@
 "use client";
 
+import ContactCTA from "@/components/ui/ContactCTA";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const metrics = [
@@ -92,6 +93,8 @@ export default function Results() {
                 <p className="scroll-reveal mt-8 text-xs text-[#4a403a]/30 font-light">
                     * Datos de campañas gestionadas para clientes activos. Los resultados pueden variar según industria y presupuesto.
                 </p>
+
+                <ContactCTA />
             </div>
         </section>
     );

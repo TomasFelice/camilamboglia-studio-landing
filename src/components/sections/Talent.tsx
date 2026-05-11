@@ -57,6 +57,7 @@ export default function Talent() {
                         </Link>
                     </div>
                 </div>
+
             </div>
         </section>
     );
