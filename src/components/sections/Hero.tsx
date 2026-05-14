@@ -15,13 +15,22 @@ export default function Hero() {
             ref={sectionRef}
             className="relative w-full min-h-screen flex flex-col justify-center items-center overflow-hidden pt-20"
         >
-            {/* Background image */}
+            {/* Background image — desktop (landscape) */}
             <Image
-                src="/hero_image_2.webp"
-                alt="Hero background"
+                src="/produ/hero-cala-cards-desktop.png"
+                alt="Cala Studio — producción editorial"
                 fill
                 priority
-                className="object-cover"
+                className="hidden lg:block object-cover object-center"
+                quality={90}
+            />
+            {/* Background image — mobile (portrait) */}
+            <Image
+                src="/produ/hero-cala-cards.jpg"
+                alt="Cala Studio — producción editorial"
+                fill
+                priority
+                className="block lg:hidden object-cover object-center"
                 quality={90}
             />
 
