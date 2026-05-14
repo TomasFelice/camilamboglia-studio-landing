@@ -61,7 +61,7 @@ export default function About() {
                         <div className="scroll-reveal grid grid-cols-3 gap-6 pt-6 border-t border-[#4a403a]/10">
                             <div>
                                 <div className="text-3xl md:text-4xl font-bold text-[#1a1a1a]">15+</div>
-                                <div className="text-xs tracking-[0.15em] uppercase text-[#4a403a]/40 mt-2">Marcas que confían en nosotros</div>
+                                <div className="text-xs tracking-[0.15em] uppercase text-[#4a403a]/40 mt-2">Clientes que confían en nosotros</div>
                             </div>
                             <div>
                                 <div className="text-3xl md:text-4xl font-bold text-[#1a1a1a]">100%</div>
